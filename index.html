@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Solution BD - Digital Services & Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#061E42',
+                        secondary: '#1E40AF',
+                        accent: '#3B82F6',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Animation for the underline */
+        @keyframes underlineAnimation {
+            0% {
+                transform: scaleX(0);
+            }
+
+            50% {
+                transform: scaleX(1);
+            }
+
+            100% {
+                transform: scaleX(0);
+            }
+        }
+
+        h2.animated-underline:hover span,
+        h2.animated-underline span {
+            animation: underlineAnimation 3s infinite;
+        }
+    </style>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            }
+            .carousel-slide {
+                transition: opacity 1s ease-in-out;
+            }
+            .mobile-menu {
+                transition: all 0.3s ease-in-out;
+                max-height: 0;
+                overflow: hidden;
+            }
+            .mobile-menu.open {
+                max-height: 500px;
+            }
+            /* Dark glass morphism effect */
+            .glass-nav {
+                background: rgba(6, 30, 66, 0.8); /* Primary color with transparency */
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .glass-nav.scrolled {
+                background: rgba(6, 30, 66, 0.95); /* More opaque when scrolled */
+            }
+        }
+    </style>
+</head>
+
+<body class="font-poppins bg-gray-50">
+    <!-- Top Bar -->
+    <div class="md:block hidden bg-primary text-white text-sm py-2 px-4">
+        <div class="container mx-auto flex justify-around items-center">
+            <div class="flex justify-between gap-6 items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span> Aftabnagar Merul Badda, Dhaka,1212</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-phone-alt"></i>
+                    <span> +8801823854012</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-envelope-open"></i>
+                    <span> info@techsolutionbd.com</span>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="hover:text-accent transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-accent transition"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-accent transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-accent transition"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navbar with Dark Glass Effect -->
+    <nav id="main-nav" class="sticky top-0 z-50 glass-nav transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center font-bold">TS
+                </div>
+                <span class="text-xl font-bold text-white">Tech Solution BD</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-white hover:text-accent font-medium transition">Home</a>
+                <a href="#services" class="text-white hover:text-accent font-medium transition">Services</a>
+                <a href="#about" class="text-white hover:text-accent font-medium transition">About</a>
+                <a href="#portfolio" class="text-white hover:text-accent font-medium transition">Portfolio</a>
+                <a href="#blog" class="text-white hover:text-accent font-medium transition">Blog</a>
+                <a href="#contact" class="text-white hover:text-accent font-medium transition">Contact</a>
+                <button
+                    class="bg-accent text-white px-4 py-2 rounded-md hover:bg-white hover:text-primary transition">Get a
+                    Quote</button>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-primary bg-opacity-90 w-full px-4">
+            <div class="flex flex-col space-y-4 py-4">
+                <a href="#home" class="text-white hover:text-accent font-medium transition">Home</a>
+                <a href="#services" class="text-white hover:text-accent font-medium transition">Services</a>
+                <a href="#about" class="text-white hover:text-accent font-medium transition">About</a>
+                <a href="#portfolio" class="text-white hover:text-accent font-medium transition">Portfolio</a>
+                <a href="#blogs" class="text-white hover:text-accent font-medium transition">Blogs</a>
+                <a href="#contact" class="text-white hover:text-accent font-medium transition">Contact</a>
+                <button
+                    class="bg-accent text-white px-4 py-2 rounded-md hover:bg-white hover:text-primary transition w-full">Get
+                    a Quote</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Carousel -->
+    <section id="home" class="relative overflow-hidden">
+        <!-- Carousel Slides - min-h-screen on mobile -->
+        <div class="relative min-h-screen md:max-h-[600px]">
+            <!-- Slide 1 -->
+            <div class="carousel-slide absolute inset-0 flex items-center">
+                <!-- Background Image -->
+                <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+                    alt="Social Media Marketing" class="absolute inset-0 w-full h-full object-cover z-0">
+
+                <!-- Blue Overlay -->
+                <div class="absolute inset-0 bg-primary opacity-70 z-10 mix-blend-multiply"></div>
+
+                <!-- Content -->
+                <div class="container mx-auto px-4 z-20 text-white text-center py-16">
+                    <div class="max-w-4xl mx-auto">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-shadow-lg">Boost Your Social Presence</h1>
+                        <p class="text-xl md:text-2xl mb-8 text-shadow-lg">Get real followers, likes, and engagement to
+                            grow your brand.</p>
+                        <div class="flex flex-col sm:flex-row justify-center gap-4">
+                            <button
+                                class="bg-accent hover:bg-white hover:text-primary text-white px-6 py-3 rounded-md font-medium transition">
+                                Get Started
+                            </button>
+                            <button
+                                class="border-2 border-white hover:bg-white hover:text-primary text-white px-6 py-3 rounded-md font-medium transition">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-slide absolute inset-0 flex items-center opacity-0">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                    alt="Digital Marketing" class="absolute inset-0 w-full h-full object-cover z-0">
+                <div class="absolute inset-0 bg-primary opacity-70 z-10 mix-blend-multiply"></div>
+                <div class="container mx-auto px-4 z-20 text-white text-center py-16">
+                    <div class="max-w-4xl mx-auto">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-shadow-lg">Digital Marketing Solutions</h1>
+                        <p class="text-xl md:text-2xl mb-8 text-shadow-lg">Maximize your online potential with our
+                            expert services.</p>
+                        <div class="flex flex-col sm:flex-row justify-center gap-4">
+                            <button
+                                class="bg-accent hover:bg-white hover:text-primary text-white px-6 py-3 rounded-md font-medium transition">
+                                Our Services
+                            </button>
+                            <button
+                                class="border-2 border-white hover:bg-white hover:text-primary text-white px-6 py-3 rounded-md font-medium transition">
+                                Case Studies
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-slide absolute inset-0 flex items-center opacity-0">
+                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80"
+                    alt="Web Development" class="absolute inset-0 w-full h-full object-cover z-0">
+                <div class="absolute inset-0 bg-primary opacity-70 z-10 mix-blend-multiply"></div>
+                <div class="container mx-auto px-4 z-20 text-white text-center py-16">
+                    <div class="max-w-4xl mx-auto">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4 text-shadow-lg">Web Design & Development</h1>
+                        <p class="text-xl md:text-2xl mb-8 text-shadow-lg">Custom websites that convert visitors into
+                            customers.</p>
+                        <div class="flex flex-col sm:flex-row justify-center gap-4">
+                            <button
+                                class="bg-accent hover:bg-white hover:text-primary text-white px-6 py-3 rounded-md font-medium transition">
+                                View Portfolio
+                            </button>
+                            <button
+                                class="border-2 border-white hover:bg-white hover:text-primary text-white px-6 py-3 rounded-md font-medium transition">
+                                Request Quote
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Indicators -->
+        <div class="absolute bottom-8 left-0 right-0 flex justify-center space-x-2 z-30">
+            <button class="carousel-indicator w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition"
+                data-slide="0"></button>
+            <button class="carousel-indicator w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition"
+                data-slide="1"></button>
+            <button class="carousel-indicator w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition"
+                data-slide="2"></button>
+        </div>
+    </section>
+
+    <!-- About Section with Animated Underline -->
+    <section id="about" class="py-16 bg-gray-50 min-h-screen lg:py-16 flex items-center">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center justify-center">
+                <!-- Text Content -->
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12 text-center lg:text-left">
+                    <!-- Header with Animated Underline -->
+                    <div class="inline-block">
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6 relative inline-block">
+                            About Tech Solution BD
+                            <span
+                                class="absolute bottom-0 left-0 w-full h-1 bg-accent origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
+                        </h2>
+                    </div>
+
+                    <p class="text-gray-600 mb-6 max-w-2xl mx-auto lg:mx-0">
+                        We are a dynamic digital solutions provider based in Dhaka, Bangladesh,
+                        dedicated to helping businesses establish and grow their online presence.
+                    </p>
+                    <p class="text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0">
+                        With our team of experienced professionals, we deliver customized solutions
+                        that drive results and help our clients achieve their business objectives.
+                    </p>
+
+                    <div class="space-y-4 max-w-2xl mx-auto lg:mx-0">
+                        <div class="flex items-start">
+                            <div class="bg-accent rounded-full p-2 mr-4 flex-shrink-0">
+                                <i class="fas fa-check text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary">Proven Results</h4>
+                                <p class="text-gray-600">We've helped 100+ businesses grow their online presence</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-accent rounded-full p-2 mr-4 flex-shrink-0">
+                                <i class="fas fa-check text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary">Expert Team</h4>
+                                <p class="text-gray-600">Certified professionals with years of experience</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-accent rounded-full p-2 mr-4 flex-shrink-0">
+                                <i class="fas fa-check text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary">Customer Focus</h4>
+                                <p class="text-gray-600">Your success is our top priority</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Content -->
+                <div class="lg:w-1/2 relative mt-12 lg:mt-0">
+                    <div class="bg-primary rounded-lg overflow-hidden shadow-xl h-96 w-full">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                            alt="Our Team" class="w-full h-full object-cover opacity-80">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 shadow-lg rounded-lg w-3/4 hidden md:block">
+                        <h3 class="text-xl font-bold text-primary mb-2">Why Choose Us?</h3>
+                        <p class="text-gray-600">We combine creativity with data-driven strategies to deliver measurable
+                            results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 relative inline-block">
+                    Our Services
+                    <span
+                        class="absolute bottom-0 left-0 w-full h-1 bg-accent origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">Comprehensive digital solutions tailored to grow your
+                    business in the online world</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- SMM Service -->
+                <div
+                    class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+                            alt="Social Media Marketing"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center text-white mb-4">
+                            <i class="fas fa-share-alt text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Social Media Marketing</h3>
+                        <ul class="text-gray-600 space-y-2 mb-5">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span>Facebook & Instagram Growth</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span>Engagement & Community Building</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span>Content Strategy & Management</span>
+                            </li>
+                        </ul>
+                        <a href="#"
+                            class="text-accent font-medium hover:text-secondary transition inline-flex items-center">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Digital Marketing Service -->
+                <div
+                    class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                            alt="Digital Marketing"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center text-white mb-4">
+                            <i class="fas fa-bullseye text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Digital Marketing</h3>
+                        <ul class="text-gray-600 space-y-2 mb-5">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span>Targeted Ad Campaigns</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span>SEO & Content Marketing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span>Conversion Optimization</span>
+                            </li>
+                        </ul>
+                        <a href="#"
+                            class="text-accent font-medium hover:text-secondary transition inline-flex items-center">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Web Development Service -->
+                <div
+                    class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80"
+                            alt="Web Development"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center text-white mb-4">
+                            <i class="fas fa-code text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">Web Development</h3>
+                        <ul class="text-gray-600 space-y-2 mb-5">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span>Custom Website Development</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span>E-commerce Solutions</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span>Performance Optimization</span>
+                            </li>
+                        </ul>
+                        <a href="#"
+                            class="text-accent font-medium hover:text-secondary transition inline-flex items-center">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- App Development Service -->
+                <div
+                    class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                            alt="App Development"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center text-white mb-4">
+                            <i class="fab fa-android text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3">App Development</h3>
+                        <ul class="text-gray-600 space-y-2 mb-5">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span>Cross-platform Flutter Apps</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span>iOS & Android Development</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-accent mt-1 mr-2"></i>
+                                <span>UI/UX Focused Design</span>
+                            </li>
+                        </ul>
+                        <a href="#"
+                            class="text-accent font-medium hover:text-secondary transition inline-flex items-center">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 relative inline-block">
+                    Our Portfolio
+                    <span
+                        class="absolute bottom-0 left-0 w-full h-1 bg-accent origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore our successful projects that transformed businesses
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Portfolio Item 1 -->
+                <div
+                    class="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500">
+                    <div class="h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+                            alt="Social Media Campaign"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <div
+                            class="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                            <span class="inline-block bg-accent text-white text-sm px-3 py-1 rounded-full mb-2">Social
+                                Media</span>
+                            <h3 class="text-white font-bold text-2xl mb-2">Fashion Brand Growth</h3>
+                            <p class="text-gray-200 mb-4">300% follower increase with targeted engagement strategies</p>
+                            <a href="#"
+                                class="inline-flex items-center text-white font-medium hover:text-accent transition">
+                                View Case Study <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 2 -->
+                <div
+                    class="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500">
+                    <div class="h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80"
+                            alt="E-commerce Website"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <div
+                            class="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                            <span
+                                class="inline-block bg-accent text-white text-sm px-3 py-1 rounded-full mb-2">E-commerce</span>
+                            <h3 class="text-white font-bold text-2xl mb-2">Online Boutique Store</h3>
+                            <p class="text-gray-200 mb-4">50% conversion boost with optimized user experience</p>
+                            <a href="#"
+                                class="inline-flex items-center text-white font-medium hover:text-accent transition">
+                                View Case Study <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 3 -->
+                <div
+                    class="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500">
+                    <div class="h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                            alt="Ad Campaign"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <div
+                            class="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                            <span class="inline-block bg-accent text-white text-sm px-3 py-1 rounded-full mb-2">PPC
+                                Campaign</span>
+                            <h3 class="text-white font-bold text-2xl mb-2">SaaS Marketing</h3>
+                            <p class="text-gray-200 mb-4">40% lower acquisition costs with optimized ad strategies</p>
+                            <a href="#"
+                                class="inline-flex items-center text-white font-medium hover:text-accent transition">
+                                View Case Study <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 4 (New) -->
+                <div
+                    class="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500">
+                    <div class="h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                            alt="Mobile App"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <div
+                            class="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                            <span class="inline-block bg-accent text-white text-sm px-3 py-1 rounded-full mb-2">Mobile
+                                App</span>
+                            <h3 class="text-white font-bold text-2xl mb-2">Fitness Tracker App</h3>
+                            <p class="text-gray-200 mb-4">Cross-platform solution with 4.8-star user rating</p>
+                            <a href="#"
+                                class="inline-flex items-center text-white font-medium hover:text-accent transition">
+                                View Case Study <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 5 (New) -->
+                <div
+                    class="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500">
+                    <div class="h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80"
+                            alt="SEO Project"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <div
+                            class="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                            <span
+                                class="inline-block bg-accent text-white text-sm px-3 py-1 rounded-full mb-2">SEO</span>
+                            <h3 class="text-white font-bold text-2xl mb-2">Travel Agency</h3>
+                            <p class="text-gray-200 mb-4">Top 3 rankings for 15+ competitive keywords</p>
+                            <a href="#"
+                                class="inline-flex items-center text-white font-medium hover:text-accent transition">
+                                View Case Study <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 6 (New) -->
+                <div
+                    class="relative group overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-500">
+                    <div class="h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                            alt="Web Design"
+                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    </div>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <div
+                            class="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                            <span class="inline-block bg-accent text-white text-sm px-3 py-1 rounded-full mb-2">Web
+                                Design</span>
+                            <h3 class="text-white font-bold text-2xl mb-2">Corporate Portal</h3>
+                            <p class="text-gray-200 mb-4">Modern design system with 65% faster load times</p>
+                            <a href="#"
+                                class="inline-flex items-center text-white font-medium hover:text-accent transition">
+                                View Case Study <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16">
+                <button
+                    class="bg-accent hover:bg-secondary text-white px-8 py-4 rounded-lg font-medium transition transform hover:scale-105 inline-flex items-center">
+                    View All Projects <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 relative inline-block">
+                    What Our Clients Say
+                    <span
+                        class="absolute bottom-0 left-0 w-full h-1 bg-accent origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Trusted by businesses across Bangladesh and beyond</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div
+                    class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-accent">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Client"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-primary">Sarah Ahmed</h4>
+                            <p class="text-gray-500 text-sm">CEO, Fashion House BD</p>
+                        </div>
+                    </div>
+                    <div class="text-gray-600 mb-6">
+                        <i class="fas fa-quote-left text-accent opacity-30 text-2xl float-left mr-2"></i>
+                        <p>Tech Solution BD transformed our social media presence completely. Our Instagram followers
+                            grew by 300% in just 3 months, bringing us significant sales growth.</p>
+                    </div>
+                    <div class="flex text-accent">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div
+                    class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-accent">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-primary">Rahim Khan</h4>
+                            <p class="text-gray-500 text-sm">Director, ShopEase</p>
+                        </div>
+                    </div>
+                    <div class="text-gray-600 mb-6">
+                        <i class="fas fa-quote-left text-accent opacity-30 text-2xl float-left mr-2"></i>
+                        <p>Our e-commerce website developed by Tech Solution BD increased our conversion rate by 50%.
+                            Their attention to detail and post-launch support is exceptional.</p>
+                    </div>
+                    <div class="flex text-accent">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div
+                    class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-accent">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Client"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold text-primary">Nusrat Jahan</h4>
+                            <p class="text-gray-500 text-sm">Marketing Head, EduTech Ltd</p>
+                        </div>
+                    </div>
+                    <div class="text-gray-600 mb-6">
+                        <i class="fas fa-quote-left text-accent opacity-30 text-2xl float-left mr-2"></i>
+                        <p>The Google Ads campaign managed by Tech Solution BD reduced our customer acquisition cost by
+                            40% while doubling our leads. Truly data-driven experts!</p>
+                    </div>
+                    <div class="flex text-accent">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial Navigation -->
+            <div class="flex justify-center mt-12 space-x-2">
+                <button class="w-3 h-3 rounded-full bg-accent opacity-50 hover:opacity-100 transition"></button>
+                <button class="w-3 h-3 rounded-full bg-accent opacity-30 hover:opacity-100 transition"></button>
+                <button class="w-3 h-3 rounded-full bg-accent opacity-30 hover:opacity-100 transition"></button>
+            </div>
+
+            <!-- Trusted By Brands -->
+            <div class="mt-16 pt-8 border-t border-gray-200">
+                <h3 class="text-center text-gray-500 mb-8">Trusted by leading brands</h3>
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-70">
+                    <img src="https://via.placeholder.com/120x40/061E42/FFFFFF?text=Brand+1" alt="Brand Logo"
+                        class="h-8 md:h-10">
+                    <img src="https://via.placeholder.com/120x40/061E42/FFFFFF?text=Brand+2" alt="Brand Logo"
+                        class="h-8 md:h-10">
+                    <img src="https://via.placeholder.com/120x40/061E42/FFFFFF?text=Brand+3" alt="Brand Logo"
+                        class="h-8 md:h-10">
+                    <img src="https://via.placeholder.com/120x40/061E42/FFFFFF?text=Brand+4" alt="Brand Logo"
+                        class="h-8 md:h-10">
+                    <img src="https://via.placeholder.com/120x40/061E42/FFFFFF?text=Brand+5" alt="Brand Logo"
+                        class="h-8 md:h-10">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Grow Your Business Online?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Let's discuss how we can help you achieve your digital marketing
+                goals.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <button class="bg-white text-primary px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition">Get
+                    a Free Consultation</button>
+                <button
+                    class="border-2 border-white text-white px-8 py-3 rounded-md font-medium hover:bg-white hover:text-primary transition">Call
+                    Us Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section id="team" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 relative inline-block">
+                    Meet Our Team
+                    <span
+                        class="absolute bottom-0 left-0 w-full h-1 bg-accent origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">The passionate professionals behind your digital success</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Team Member 1 -->
+                <div
+                    class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 text-center">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team Member"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-primary text-lg">Arafat Rahman</h3>
+                        <p class="text-accent text-sm mb-2">Digital Marketing Expert</p>
+                        <div class="flex justify-center space-x-3 text-gray-400">
+                            <a href="#" class="hover:text-accent transition"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="hover:text-accent transition"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="hover:text-accent transition"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div
+                    class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 text-center">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Team Member"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-primary text-lg">Tasnim Ahmed</h3>
+                        <p class="text-accent text-sm mb-2">SMM Specialist</p>
+                        <div class="flex justify-center space-x-3 text-gray-400">
+                            <a href="#" class="hover:text-accent transition"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="hover:text-accent transition"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="hover:text-accent transition"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div
+                    class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 text-center">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Team Member"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-primary text-lg">Rakib Hasan</h3>
+                        <p class="text-accent text-sm mb-2">Web Developer</p>
+                        <div class="flex justify-center space-x-3 text-gray-400">
+                            <a href="#" class="hover:text-accent transition"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="hover:text-accent transition"><i class="fab fa-github"></i></a>
+                            <a href="#" class="hover:text-accent transition"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div
+                    class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 text-center">
+                    <div class="h-60 overflow-hidden">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Team Member"
+                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-primary text-lg">Nadia Islam</h3>
+                        <p class="text-accent text-sm mb-2">Flutter Developer</p>
+                        <div class="flex justify-center space-x-3 text-gray-400">
+                            <a href="#" class="hover:text-accent transition"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="hover:text-accent transition"><i class="fab fa-github"></i></a>
+                            <a href="#" class="hover:text-accent transition"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#"
+                    class="inline-flex items-center text-primary font-medium hover:text-accent transition border-b border-transparent hover:border-accent">
+                    View Full Team <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 relative inline-block">
+                        Get In Touch
+                        <span
+                            class="absolute bottom-0 left-0 w-full h-1 bg-accent origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
+                    </h2>
+                    <p class="text-gray-600 mb-8">Have questions about our services or want to discuss your project?
+                        Reach out to us using the form or contact details below.</p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-accent rounded-full p-3 mr-4 text-white">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary">Our Office</h4>
+                                <p class="text-gray-600">Aftabnagar Merul Badda, Dhaka,1212</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-accent rounded-full p-3 mr-4 text-white">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary">Phone</h4>
+                                <p class="text-gray-600"> +880 1823 854012</p>
+                                <p class="text-gray-600">+880 1850 235934</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-accent rounded-full p-3 mr-4 text-white">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary">Email</h4>
+                                <p class="text-gray-600">info@techsolutionbd.com</p>
+                                <p class="text-gray-600">support@techsolutionbd.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <h4 class="font-bold text-primary mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#"
+                                class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-accent transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-accent transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-accent transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-accent transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-primary mb-6">Send Us a Message</h3>
+                        <form>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                                    <input type="text" id="name" placeholder="Your name..."
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">Your Email</label>
+                                    <input type="email" id="email" placeholder="eg: johndoe@example.com"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                                <input type="text" id="subject" placeholder="what you want to say about.."
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent">
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                                <textarea id="message" rows="5" placeholder="your message.."
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full bg-accent hover:bg-secondary text-white px-6 py-3 rounded-md font-medium transition">Send
+                                Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div
+                            class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-white font-bold">
+                            TS</div>
+                        <span class="text-xl font-bold">Tech Solution BD</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">Your trusted partner for digital marketing and web solutions in
+                        Bangladesh.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Social Media Marketing</a>
+                        </li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Facebook & Google Ads</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Search Engine Optimization</a>
+                        </li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Web Design & Development</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-white transition">Home</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-white transition">Services</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition">About Us</a></li>
+                        <li><a href="#portfolio" class="text-gray-300 hover:text-white transition">Portfolio</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Newsletter</h4>
+                    <p class="text-gray-300 mb-4">Subscribe to our newsletter for the latest updates and offers.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your Email"
+                            class="px-4 py-2 rounded-l-md w-full text-gray-800 focus:outline-none">
+                        <button type="submit" class="bg-accent hover:bg-secondary px-4 py-2 rounded-r-md transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-300 mb-4 md:mb-0">© 2023 Tech Solution BD. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-300 hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">Terms of Service</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = mobileMenuButton.querySelector('i');
+
+            mobileMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('open');
+
+                // Toggle between hamburger and close icon
+                if (mobileMenu.classList.contains('open')) {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
+                } else {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                }
+            });
+
+            // Close mobile menu when a link is clicked
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    mobileMenu.classList.remove('open');
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                });
+            });
+
+            // Carousel functionality
+            const slides = document.querySelectorAll('.carousel-slide');
+            const indicators = document.querySelectorAll('.carousel-indicator');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                slides.forEach(slide => slide.style.opacity = '0');
+                indicators.forEach(indicator => indicator.classList.add('opacity-50'));
+
+                slides[index].style.opacity = '1';
+                indicators[index].classList.remove('opacity-50');
+                currentSlide = index;
+            }
+
+            function nextSlide() {
+                let newIndex = (currentSlide + 1) % slides.length;
+                showSlide(newIndex);
+            }
+
+            // Initialize first slide
+            showSlide(0);
+
+            // Set auto-rotation
+            setInterval(nextSlide, 5000);
+
+            // Add click handlers for indicators
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => showSlide(index));
+            });
+        });
+
+        // Add animated-underline class to all h2 elements
+        document.querySelectorAll('h2').forEach(h2 => {
+            h2.classList.add('animated-underline');
+        });
+    </script>
+</body>
+
+</html>
