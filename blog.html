@@ -4,9 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Tech Solution BD</title>
+    <title>Our Blog | Tech Solution BD - Digital Services & Solutions</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="images/fav.jpg" type="image/x-icon">
+
+    <!-- tailwind css cdn -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font awesome cdn -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- google font link -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
 
     <!-- tailwind config script -->
     <script>
@@ -26,23 +36,10 @@
             }
         }
     </script>
-    <style>
-        .blog-card {
-            transition: all 0.3s ease;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(6, 30, 66, 0.1);
-        }
-    </style>
 
     <!-- tailwind stylesheet css -->
     <style type="text/tailwindcss">
         @layer utilities {
-            .text-shadow {
-                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-            }
             .mobile-menu {
                 transition: all 0.3s ease-in-out;
                 max-height: 0;
@@ -64,9 +61,72 @@
             }
         }
     </style>
+
+    <!-- custom css style -->
+    <style>
+        /* Animation for the underline */
+        @keyframes underlineAnimation {
+            0% {
+                transform: scaleX(0);
+            }
+
+            50% {
+                transform: scaleX(1);
+            }
+
+            100% {
+                transform: scaleX(0);
+            }
+        }
+
+        h2.animated-underline:hover span,
+        h2.animated-underline span {
+            animation: underlineAnimation 3s infinite;
+        }
+
+        /* Blog specific styling */
+        .blog-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-category {
+            transition: all 0.3s ease;
+        }
+
+        .blog-category.active {
+            background-color: #3B82F6;
+            color: white;
+        }
+
+        .read-time:before {
+            content: "•";
+            margin: 0 8px;
+            color: #9CA3AF;
+        }
+
+        .blog-image {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-image {
+            transform: scale(1.05);
+        }
+
+        .image-container {
+            overflow: hidden;
+        }
+    </style>
 </head>
 
-<body class="font-sans bg-gray-50">
+<body class="font-poppins bg-gray-50">
     <!-- Top Bar -->
     <div class="md:block hidden bg-primary text-white text-sm py-2 px-4">
         <div class="container mx-auto flex justify-around items-center">
@@ -103,12 +163,12 @@
                 <span class="text-xl font-bold text-white">Tech Solution BD</span>
             </div>
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="text-white hover:text-accent font-medium transition">Home</a>
-                <a href="#services" class="text-white hover:text-accent font-medium transition">Services</a>
-                <a href="#about" class="text-white hover:text-accent font-medium transition">About</a>
-                <a href="#portfolio" class="text-white hover:text-accent font-medium transition">Portfolio</a>
-                <a href="#blog" class="text-white hover:text-accent font-medium transition">Blog</a>
-                <a href="#contact" class="text-white hover:text-accent font-medium transition">Contact</a>
+                <a href="index.html" class="text-white hover:text-accent font-medium transition">Home</a>
+                <a href="services.html" class="text-white hover:text-accent font-medium transition">Services</a>
+                <a href="portfolio.html" class="text-white hover:text-accent font-medium transition">Portfolio</a>
+                <a href="blog.html" class="text-white font-medium transition border-b-2 border-accent">Blog</a>
+                <a href="about.html" class="text-white hover:text-accent font-medium transition">About</a>
+                <a href="contact.html" class="text-white hover:text-accent font-medium transition">Contact</a>
                 <button
                     class="bg-accent text-white px-4 py-2 rounded-md hover:bg-white hover:text-primary transition">Get a
                     Quote</button>
@@ -121,12 +181,12 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="mobile-menu md:hidden bg-primary bg-opacity-90 w-full px-4">
             <div class="flex flex-col space-y-4 py-4">
-                <a href="#home" class="text-white hover:text-accent font-medium transition">Home</a>
-                <a href="#services" class="text-white hover:text-accent font-medium transition">Services</a>
-                <a href="#about" class="text-white hover:text-accent font-medium transition">About</a>
-                <a href="#portfolio" class="text-white hover:text-accent font-medium transition">Portfolio</a>
-                <a href="#blogs" class="text-white hover:text-accent font-medium transition">Blogs</a>
-                <a href="#contact" class="text-white hover:text-accent font-medium transition">Contact</a>
+                <a href="index.html" class="text-white hover:text-accent font-medium transition">Home</a>
+                <a href="services.html" class="text-white hover:text-accent font-medium transition">Services</a>
+                <a href="portfolio.html" class="text-white hover:text-accent font-medium transition">Portfolio</a>
+                <a href="blog.html" class="text-white font-medium transition border-b-2 border-accent">Blog</a>
+                <a href="about.html" class="text-white hover:text-accent font-medium transition">About</a>
+                <a href="contact.html" class="text-white hover:text-accent font-medium transition">Contact</a>
                 <button
                     class="bg-accent text-white px-4 py-2 rounded-md hover:bg-white hover:text-primary transition w-full">Get
                     a Quote</button>
@@ -134,128 +194,369 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="relative h-96 md:h-screen max-h-[600px]">
-        <!-- Background Image -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                alt="Blog Hero Background" class="w-full h-full object-cover">
+    <!-- Blog Hero Section -->
+    <section class="relative bg-primary text-white py-20 md:py-28">
+        <div class="absolute inset-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                alt="Our Blog" class="w-full h-full object-cover">
         </div>
-
-        <!-- Blue Overlay -->
-        <div class="absolute inset-0 z-1 bg-primary/70"></div>
-
-        <!-- Hero Content -->
-        <div class="relative z-10 h-full flex flex-col justify-center text-center px-4">
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Insights & Strategies</h1>
-            <p class="text-xl text-blue-100 max-w-2xl mx-auto mb-8">Expert knowledge to grow your digital presence</p>
-            <div class="flex justify-center">
-                <a href="#blog-grid"
-                    class="bg-accent hover:bg-white text-white hover:text-primary px-8 py-3 rounded-md font-medium transition">
-                    Explore Articles
-                </a>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Our Blog</h1>
+                <p class="text-xl text-gray-200 mb-8">Insights, trends and strategies for digital success</p>
+                <div class="flex justify-center">
+                    <a href="#blog-posts"
+                        class="border-2 border-white hover:bg-white hover:text-primary text-white px-6 py-3 rounded-md font-medium transition">
+                        Read Articles
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Blog Grid Section -->
-    <section id="blog-grid" class="py-16 bg-white">
+    <!-- Blog Categories -->
+    <section class="py-12 bg-white">
         <div class="container mx-auto px-4">
-            <!-- Category Filters -->
-            <div class="flex flex-wrap justify-center gap-3 mb-12">
-                <button class="px-4 py-2 rounded-full bg-accent text-white">All</button>
-                <button
-                    class="px-4 py-2 rounded-full bg-gray-100 hover:bg-accent hover:text-white transition">Marketing</button>
-                <button
-                    class="px-4 py-2 rounded-full bg-gray-100 hover:bg-accent hover:text-white transition">Development</button>
-                <button
-                    class="px-4 py-2 rounded-full bg-gray-100 hover:bg-accent hover:text-white transition">Design</button>
-                <button
-                    class="px-4 py-2 rounded-full bg-gray-100 hover:bg-accent hover:text-white transition">Strategy</button>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="blog-category active px-6 py-2 rounded-full bg-gray-100 text-primary font-medium"
+                    data-category="all">
+                    All Articles
+                </button>
+                <button class="blog-category px-6 py-2 rounded-full bg-gray-100 text-primary font-medium"
+                    data-category="marketing">
+                    Digital Marketing
+                </button>
+                <button class="blog-category px-6 py-2 rounded-full bg-gray-100 text-primary font-medium"
+                    data-category="web">
+                    Web Development
+                </button>
+                <button class="blog-category px-6 py-2 rounded-full bg-gray-100 text-primary font-medium"
+                    data-category="seo">
+                    SEO
+                </button>
+                <button class="blog-category px-6 py-2 rounded-full bg-gray-100 text-primary font-medium"
+                    data-category="social">
+                    Social Media
+                </button>
+                <button class="blog-category px-6 py-2 rounded-full bg-gray-100 text-primary font-medium"
+                    data-category="trends">
+                    Industry Trends
+                </button>
             </div>
+        </div>
+    </section>
 
-            <!-- Blog Posts Grid -->
+    <!-- Blog Posts Grid -->
+    <section id="blog-posts" class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Post 1 -->
-                <article class="blog-card bg-white rounded-lg overflow-hidden border border-gray-100">
-                    <a href="#">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80"
-                                alt="Social Media Trends" class="w-full h-full object-cover">
+                <!-- Blog Post 1 -->
+                <article class="blog-card bg-white rounded-xl overflow-hidden" data-category="marketing">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                            alt="Digital Marketing Trends" class="w-full blog-image">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <span class="text-accent font-medium">Digital Marketing</span>
+                            <span class="read-time">5 min read</span>
                         </div>
-                        <div class="p-6">
-                            <div class="flex items-center text-sm text-gray-500 mb-3">
-                                <span>Marketing</span>
-                                <span class="mx-2">•</span>
-                                <span>June 15, 2023</span>
+                        <h3 class="text-xl font-bold text-primary mb-3 hover:text-accent transition">
+                            <a href="blog-single.html">Top Digital Marketing Trends to Watch in 2025</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4">Discover the emerging trends that will shape digital marketing
+                            strategies in the coming year and how to prepare for them.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full overflow-hidden mr-3">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Author"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <span class="text-sm font-medium">Rahim Khan</span>
                             </div>
-                            <h3 class="text-xl font-bold text-primary mb-3">Social Media Trends for 2023</h3>
-                            <p class="text-gray-600 mb-4">Key strategies to stay ahead in the evolving social media
-                                landscape.</p>
-                            <span class="text-accent font-medium">Read More →</span>
+                            <span class="text-sm text-gray-500">May 15, 2025</span>
                         </div>
-                    </a>
+                    </div>
                 </article>
 
-                <!-- Post 2 -->
-                <article class="blog-card bg-white rounded-lg overflow-hidden border border-gray-100">
-                    <a href="#">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                                alt="SEO Strategies" class="w-full h-full object-cover">
+                <!-- Blog Post 2 -->
+                <article class="blog-card bg-white rounded-xl overflow-hidden" data-category="web">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80"
+                            alt="Web Development" class="w-full blog-image">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <span class="text-accent font-medium">Web Development</span>
+                            <span class="read-time">8 min read</span>
                         </div>
-                        <div class="p-6">
-                            <div class="flex items-center text-sm text-gray-500 mb-3">
-                                <span>SEO</span>
-                                <span class="mx-2">•</span>
-                                <span>May 28, 2023</span>
+                        <h3 class="text-xl font-bold text-primary mb-3 hover:text-accent transition">
+                            <a href="blog-single.html">Choosing the Right Tech Stack for Your Next Project</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4">A comprehensive guide to selecting the perfect combination of
+                            technologies for your web application based on project requirements.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full overflow-hidden mr-3">
+                                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Author"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <span class="text-sm font-medium">Fatima Ahmed</span>
                             </div>
-                            <h3 class="text-xl font-bold text-primary mb-3">SEO Best Practices for 2023</h3>
-                            <p class="text-gray-600 mb-4">How to optimize your website for better search engine
-                                rankings.</p>
-                            <span class="text-accent font-medium">Read More →</span>
+                            <span class="text-sm text-gray-500">April 28, 2025</span>
                         </div>
-                    </a>
+                    </div>
                 </article>
 
-                <!-- Post 3 -->
-                <article class="blog-card bg-white rounded-lg overflow-hidden border border-gray-100">
-                    <a href="#">
-                        <div class="h-48 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                                alt="Web Design" class="w-full h-full object-cover">
+                <!-- Blog Post 3 -->
+                <article class="blog-card bg-white rounded-xl overflow-hidden" data-category="seo">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+                            alt="SEO Strategies" class="w-full blog-image">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <span class="text-accent font-medium">SEO</span>
+                            <span class="read-time">6 min read</span>
                         </div>
-                        <div class="p-6">
-                            <div class="flex items-center text-sm text-gray-500 mb-3">
-                                <span>Design</span>
-                                <span class="mx-2">•</span>
-                                <span>April 10, 2023</span>
+                        <h3 class="text-xl font-bold text-primary mb-3 hover:text-accent transition">
+                            <a href="blog-single.html">Local SEO Strategies That Actually Work in 2025</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4">Proven techniques to improve your local search rankings and
+                            attract more customers from your geographic area.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full overflow-hidden mr-3">
+                                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Author"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <span class="text-sm font-medium">Karim Uddin</span>
                             </div>
-                            <h3 class="text-xl font-bold text-primary mb-3">Modern Web Design Principles</h3>
-                            <p class="text-gray-600 mb-4">Creating websites that convert visitors into customers.</p>
-                            <span class="text-accent font-medium">Read More →</span>
+                            <span class="text-sm text-gray-500">April 10, 2025</span>
                         </div>
-                    </a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="blog-card bg-white rounded-xl overflow-hidden" data-category="social">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1611162616475-465b4a0a2ad8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+                            alt="Social Media" class="w-full blog-image">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <span class="text-accent font-medium">Social Media</span>
+                            <span class="read-time">7 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3 hover:text-accent transition">
+                            <a href="blog-single.html">Instagram Algorithm Changes: What You Need to Know</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4">The latest updates to Instagram's algorithm and how to adjust your
+                            content strategy for maximum reach and engagement.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full overflow-hidden mr-3">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Author"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <span class="text-sm font-medium">Tasnim Rahman</span>
+                            </div>
+                            <span class="text-sm text-gray-500">March 22, 2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="blog-card bg-white rounded-xl overflow-hidden" data-category="trends">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                            alt="AI in Marketing" class="w-full blog-image">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <span class="text-accent font-medium">Industry Trends</span>
+                            <span class="read-time">10 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3 hover:text-accent transition">
+                            <a href="blog-single.html">How AI is Revolutionizing Digital Marketing</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4">Exploring the transformative impact of artificial intelligence on
+                            marketing strategies and customer experiences.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full overflow-hidden mr-3">
+                                    <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Author"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <span class="text-sm font-medium">Arif Hossain</span>
+                            </div>
+                            <span class="text-sm text-gray-500">March 5, 2025</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 6 -->
+                <article class="blog-card bg-white rounded-xl overflow-hidden" data-category="web">
+                    <div class="image-container">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                            alt="Web Performance" class="w-full blog-image">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <span class="text-accent font-medium">Web Development</span>
+                            <span class="read-time">9 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3 hover:text-accent transition">
+                            <a href="blog-single.html">Optimizing Website Performance: A Developer's Guide</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4">Practical techniques to improve your website's loading speed and
+                            overall performance for better user experience.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 rounded-full overflow-hidden mr-3">
+                                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Author"
+                                        class="w-full h-full object-cover">
+                                </div>
+                                <span class="text-sm font-medium">Nadia Islam</span>
+                            </div>
+                            <span class="text-sm text-gray-500">February 18, 2025</span>
+                        </div>
+                    </div>
                 </article>
             </div>
 
             <!-- Pagination -->
             <div class="flex justify-center mt-16">
                 <nav class="flex items-center space-x-2">
-                    <button
-                        class="px-4 py-2 border border-gray-300 rounded-md text-primary hover:bg-accent hover:text-white transition">
+                    <a href="#"
+                        class="px-4 py-2 border rounded-md text-gray-700 hover:bg-accent hover:text-white transition">
                         <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="px-4 py-2 border border-accent bg-accent text-white rounded-md">1</button>
-                    <button
-                        class="px-4 py-2 border border-gray-300 rounded-md text-primary hover:bg-accent hover:text-white transition">2</button>
-                    <button
-                        class="px-4 py-2 border border-gray-300 rounded-md text-primary hover:bg-accent hover:text-white transition">3</button>
-                    <button
-                        class="px-4 py-2 border border-gray-300 rounded-md text-primary hover:bg-accent hover:text-white transition">
+                    </a>
+                    <a href="#" class="px-4 py-2 border rounded-md bg-accent text-white">1</a>
+                    <a href="#"
+                        class="px-4 py-2 border rounded-md text-gray-700 hover:bg-accent hover:text-white transition">2</a>
+                    <a href="#"
+                        class="px-4 py-2 border rounded-md text-gray-700 hover:bg-accent hover:text-white transition">3</a>
+                    <a href="#"
+                        class="px-4 py-2 border rounded-md text-gray-700 hover:bg-accent hover:text-white transition">4</a>
+                    <a href="#"
+                        class="px-4 py-2 border rounded-md text-gray-700 hover:bg-accent hover:text-white transition">
                         <i class="fas fa-chevron-right"></i>
-                    </button>
+                    </a>
                 </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Posts -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 relative inline-block animated-underline">
+                    Popular Posts
+                    <span
+                        class="absolute bottom-0 left-0 w-full h-1 bg-accent origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Most read articles from our blog</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Popular Post 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                            alt="Popular Post" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <span class="text-accent font-medium">Digital Marketing</span>
+                            <span class="read-time">5 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3 hover:text-accent transition">
+                            <a href="blog-single.html">Top Digital Marketing Trends to Watch in 2025</a>
+                        </h3>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full overflow-hidden mr-3">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Author"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <span class="text-sm font-medium block">Rahim Khan</span>
+                                <span class="text-xs text-gray-500">May 15, 2025 • 1,245 views</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Popular Post 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+                            alt="Popular Post" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <span class="text-accent font-medium">SEO</span>
+                            <span class="read-time">6 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3 hover:text-accent transition">
+                            <a href="blog-single.html">Local SEO Strategies That Actually Work in 2025</a>
+                        </h3>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full overflow-hidden mr-3">
+                                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Author"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <span class="text-sm font-medium block">Karim Uddin</span>
+                                <span class="text-xs text-gray-500">April 10, 2025 • 987 views</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Popular Post 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                            alt="Popular Post" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <span class="text-accent font-medium">Industry Trends</span>
+                            <span class="read-time">10 min read</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-3 hover:text-accent transition">
+                            <a href="blog-single.html">How AI is Revolutionizing Digital Marketing</a>
+                        </h3>
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full overflow-hidden mr-3">
+                                <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Author"
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <span class="text-sm font-medium block">Arif Hossain</span>
+                                <span class="text-xs text-gray-500">March 5, 2025 • 1,532 views</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Digital Presence?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Let's discuss how we can help you achieve your digital goals.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="contact.html"
+                    class="bg-white text-primary px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition">Get a
+                    Free Consultation</a>
+                <a href="tel:+8801823854012"
+                    class="border-2 border-white text-white px-8 py-3 rounded-md font-medium hover:bg-white hover:text-primary transition">Call
+                    Us Now</a>
             </div>
         </div>
     </section>
@@ -299,11 +600,12 @@
                 <div>
                     <h4 class="text-lg font-bold mb-4">Quick Links</h4>
                     <ul class="space-y-2">
-                        <li><a href="#home" class="text-gray-300 hover:text-white transition">Home</a></li>
-                        <li><a href="#services" class="text-gray-300 hover:text-white transition">Services</a></li>
-                        <li><a href="#about" class="text-gray-300 hover:text-white transition">About Us</a></li>
-                        <li><a href="#portfolio" class="text-gray-300 hover:text-white transition">Portfolio</a></li>
-                        <li><a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a></li>
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition">Home</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-white transition">Services</a></li>
+                        <li><a href="portfolio.html" class="text-gray-300 hover:text-white transition">Portfolio</a>
+                        </li>
+                        <li><a href="blog.html" class="text-gray-300 hover:text-white transition">Blog</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white transition">Contact</a></li>
                     </ul>
                 </div>
                 <div>
@@ -351,6 +653,7 @@
             });
 
             // Close mobile menu when a link is clicked
+
             const mobileMenuLinks = mobileMenu.querySelectorAll('a');
             mobileMenuLinks.forEach(link => {
                 link.addEventListener('click', function () {
