@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | Tech Solution BD - Join Our Team</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="images/fav.jpg" type="image/x-icon">
+
+    <!-- tailwind css cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- google font link -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- tailwind config script -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#061E42',
+                        secondary: '#1E40AF',
+                        accent: '#3B82F6',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- tailwind stylesheet css -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .mobile-menu {
+                transition: all 0.3s ease-in-out;
+                max-height: 0;
+                overflow: hidden;
+            }
+            .mobile-menu.open {
+                max-height: 500px;
+            }
+            /* Dark glass morphism effect */
+            .glass-nav {
+                background: rgba(6, 30, 66, 0.8); /* Primary color with transparency */
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .glass-nav.scrolled {
+                background: rgba(6, 30, 66, 0.95); /* More opaque when scrolled */
+            }
+        }
+    </style>
+
+    <!-- custom css style -->
+    <style>
+        /* Animation for the underline */
+        @keyframes underlineAnimation {
+            0% {
+                transform: scaleX(0);
+            }
+
+            50% {
+                transform: scaleX(1);
+            }
+
+            100% {
+                transform: scaleX(0);
+            }
+        }
+
+        h2.animated-underline:hover span,
+        h2.animated-underline span {
+            animation: underlineAnimation 3s infinite;
+        }
+
+        /* Career specific styling */
+        .job-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+            border-left-color: #3B82F6;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-card {
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .culture-image {
+            transition: all 0.5s ease;
+        }
+
+        .culture-image:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+
+<body class="font-poppins bg-gray-50">
+    <!-- Top Bar -->
+    <div class="md:block hidden bg-primary text-white text-sm py-2 px-4">
+        <div class="container mx-auto flex justify-around items-center">
+            <div class="flex justify-between gap-6 items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span> Aftabnagar Merul Badda, Dhaka,1212</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-phone-alt"></i>
+                    <span> +8801823854012</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-envelope-open"></i>
+                    <span> info@techsolutionbd.com</span>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="hover:text-accent transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-accent transition"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-accent transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-accent transition"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navbar -->
+    <nav id="main-nav" class="sticky top-0 z-50 glass-nav transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center font-bold">
+                    <img src="images/logo.jpg" alt="logo" class="rounded-full">
+                </div>
+                <span class="text-xl font-bold text-white">Tech Solution BD</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-white hover:text-accent font-medium transition">Home</a>
+                <a href="service.html" class="text-white hover:text-accent font-medium transition">Services</a>
+                <a href="about.html" class="text-white hover:text-accent font-medium transition">About</a>
+                <a href="portfolio.html" class="text-white hover:text-accent font-medium transition">Portfolio</a>
+                <a href="career.html" class="text-white font-medium transition border-b-2 border-accent">Careers</a>
+                <a href="contact.html" class="text-white hover:text-accent font-medium transition">Contact</a>
+                <button
+                    class="bg-accent text-white px-4 py-2 rounded-md hover:bg-white hover:text-primary transition">Get a
+                    Quote</button>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-primary bg-opacity-90 w-full px-4">
+            <div class="flex flex-col space-y-4 py-4">
+                <a href="index.html" class="text-white hover:text-accent font-medium transition">Home</a>
+                <a href="service.html" class="text-white hover:text-accent font-medium transition">Services</a>
+                <a href="about.html" class="text-white hover:text-accent font-medium transition">About</a>
+                <a href="portfolio.html" class="text-white hover:text-accent font-medium transition">Portfolio</a>
+                <a href="career.html" class="text-white font-medium transition border-b-2 border-accent">Careers</a>
+                <a href="contact.html" class="text-white hover:text-accent font-medium transition">Contact</a>
+                <button
+                    class="bg-accent text-white px-4 py-2 rounded-md hover:bg-white hover:text-primary transition w-full">Get
+                    a Quote</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Careers Hero Section -->
+    <section class="relative bg-primary text-white py-20 md:py-28">
+        <div class="absolute inset-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80"
+                alt="Careers at Tech Solution BD" class="w-full h-full object-cover">
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Build Your Career With Us</h1>
+                <p class="text-xl text-gray-200 mb-8">Join a team of passionate digital experts shaping the future of
+                    technology in Bangladesh</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#open-positions"
+                        class="bg-accent hover:bg-white hover:text-primary text-white px-6 py-3 rounded-md font-medium transition">
+                        View Open Positions
+                    </a>
+                    <a href="#why-join-us"
+                        class="border-2 border-white hover:bg-white hover:text-primary text-white px-6 py-3 rounded-md font-medium transition">
+                        Why Join Us?
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Join Us Section -->
+    <section id="why-join-us" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 relative inline-block animated-underline">
+                    Why Join Tech Solution BD?
+                    <span
+                        class="absolute bottom-0 left-0 w-full h-1 bg-accent origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We're more than just a workplace - we're a community of
+                    innovators</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Benefit 1 -->
+                <div class="benefit-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div
+                        class="w-16 h-16 bg-accent bg-opacity-10 rounded-full flex items-center justify-center mb-6 text-accent">
+                        <i class="fas fa-graduation-cap text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Continuous Learning</h3>
+                    <p class="text-gray-600">We invest in your growth with regular training, workshops, and conference
+                        opportunities to keep you at the forefront of digital innovation.</p>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="benefit-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div
+                        class="w-16 h-16 bg-accent bg-opacity-10 rounded-full flex items-center justify-center mb-6 text-accent">
+                        <i class="fas fa-bolt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Impactful Work</h3>
+                    <p class="text-gray-600">Work on meaningful projects that transform businesses and make a real
+                        difference in Bangladesh's digital landscape.</p>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="benefit-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div
+                        class="w-16 h-16 bg-accent bg-opacity-10 rounded-full flex items-center justify-center mb-6 text-accent">
+                        <i class="fas fa-heart text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Great Culture</h3>
+                    <p class="text-gray-600">Join a supportive team that values collaboration, creativity, and work-life
+                        balance in our modern office environment.</p>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="benefit-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div
+                        class="w-16 h-16 bg-accent bg-opacity-10 rounded-full flex items-center justify-center mb-6 text-accent">
+                        <i class="fas fa-chart-line text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Career Growth</h3>
+                    <p class="text-gray-600">Clear career paths with regular performance reviews and opportunities for
+                        advancement within our growing company.</p>
+                </div>
+
+                <!-- Benefit 5 -->
+                <div class="benefit-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div
+                        class="w-16 h-16 bg-accent bg-opacity-10 rounded-full flex items-center justify-center mb-6 text-accent">
+                        <i class="fas fa-coins text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Competitive Benefits</h3>
+                    <p class="text-gray-600">We offer attractive compensation packages, health benefits, and performance
+                        bonuses to reward your hard work.</p>
+                </div>
+
+                <!-- Benefit 6 -->
+                <div class="benefit-card bg-white p-8 rounded-xl shadow-md border border-gray-100">
+                    <div
+                        class="w-16 h-16 bg-accent bg-opacity-10 rounded-full flex items-center justify-center mb-6 text-accent">
+                        <i class="fas fa-globe text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Flexible Options</h3>
+                    <p class="text-gray-600">Hybrid work model with flexible hours to help you maintain a healthy
+                        work-life balance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Culture Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <!-- Text Content -->
+                <div class="lg:w-1/2 lg:pr-12 mb-12 lg:mb-0">
+                    <h2
+                        class="text-3xl md:text-4xl font-bold text-primary mb-6 relative inline-block animated-underline">
+                        Our Work Culture
+                        <span
+                            class="absolute bottom-0 left-0 w-full h-1 bg-accent origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
+                    </h2>
+
+                    <p class="text-gray-600 mb-6">At Tech Solution BD, we've built a culture that fosters creativity,
+                        collaboration, and continuous learning. We believe that great ideas can come from anywhere, and
+                        we empower every team member to contribute.</p>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <div class="bg-accent rounded-full p-2 mr-4 flex-shrink-0 text-white">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary mb-2">Open Communication</h4>
+                                <p class="text-gray-600">Flat hierarchy with direct access to leadership and transparent
+                                    decision-making.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-accent rounded-full p-2 mr-4 flex-shrink-0 text-white">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary mb-2">Innovation Time</h4>
+                                <p class="text-gray-600">Dedicated time each week to work on passion projects or learn
+                                    new skills.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-accent rounded-full p-2 mr-4 flex-shrink-0 text-white">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-primary mb-2">Team Bonding</h4>
+                                <p class="text-gray-600">Regular team outings, hackathons, and knowledge-sharing
+                                    sessions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Gallery -->
+                <div class="lg:w-1/2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="culture-image rounded-lg overflow-hidden h-48">
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                                alt="Team Meeting" class="w-full h-full object-cover">
+                        </div>
+                        <div class="culture-image rounded-lg overflow-hidden h-48">
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                                alt="Office Space" class="w-full h-full object-cover">
+                        </div>
+                        <div class="culture-image rounded-lg overflow-hidden h-48">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                                alt="Team Collaboration" class="w-full h-full object-cover">
+                        </div>
+                        <div class="culture-image rounded-lg overflow-hidden h-48">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                                alt="Celebration" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open Positions Section -->
+    <section id="open-positions" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 relative inline-block animated-underline">
+                    Open Positions
+                    <span
+                        class="absolute bottom-0 left-0 w-full h-1 bg-accent origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Join our team and grow with us</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- Job 1 -->
+                <div class="job-card bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                        <div class="mb-4 md:mb-0">
+                            <h3 class="text-xl font-bold text-primary">Senior Flutter Developer</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="bg-gray-100 text-primary text-sm px-3 py-1 rounded-full">Full-time</span>
+                                <span class="bg-gray-100 text-primary text-sm px-3 py-1 rounded-full">Dhaka</span>
+                                <span class="bg-gray-100 text-primary text-sm px-3 py-1 rounded-full">Engineering</span>
+                            </div>
+                        </div>
+                        <a href="#"
+                            class="bg-accent hover:bg-secondary text-white px-6 py-2 rounded-md font-medium transition inline-block">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="job-card bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                        <div class="mb-4 md:mb-0">
+                            <h3 class="text-xl font-bold text-primary">Digital Marketing Specialist</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="bg-gray-100 text-primary text-sm px-3 py-1 rounded-full">Full-time</span>
+                                <span class="bg-gray-100 text-primary text-sm px-3 py-1 rounded-full">Dhaka</span>
+                                <span class="bg-gray-100 text-primary text-sm px-3 py-1 rounded-full">Marketing</span>
+                            </div>
+                        </div>
+                        <a href="#"
+                            class="bg-accent hover:bg-secondary text-white px-6 py-2 rounded-md font-medium transition inline-block">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="job-card bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                        <div class="mb-4 md:mb-0">
+                            <h3 class="text-xl font-bold text-primary">UI/UX Designer</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="bg-gray-100 text-primary text-sm px-3 py-1 rounded-full">Full-time</span>
+                                <span class="bg-gray-100 text-primary text-sm px-3 py-1 rounded-full">Remote</span>
+                                <span class="bg-gray-100 text-primary text-sm px-3 py-1 rounded-full">Design</span>
+                            </div>
+                        </div>
+                        <a href="#"
+                            class="bg-accent hover:bg-secondary text-white px-6 py-2 rounded-md font-medium transition inline-block">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Job 4 -->
+                <div class="job-card bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                        <div class="mb-4 md:mb-0">
+                            <h3 class="text-xl font-bold text-primary">Frontend Developer (React)</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="bg-gray-100 text-primary text-sm px-3 py-1 rounded-full">Full-time</span>
+                                <span class="bg-gray-100 text-primary text-sm px-3 py-1 rounded-full">Dhaka</span>
+                                <span class="bg-gray-100 text-primary text-sm px-3 py-1 rounded-full">Engineering</span>
+                            </div>
+                        </div>
+                        <a href="#"
+                            class="bg-accent hover:bg-secondary text-white px-6 py-2 rounded-md font-medium transition inline-block">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Job 5 -->
+                <div class="job-card bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                        <div class="mb-4 md:mb-0">
+                            <h3 class="text-xl font-bold text-primary">Content Writer</h3>
+                            <div class="flex flex-wrap gap-2 mt-2">
+                                <span class="bg-gray-100 text-primary text-sm px-3 py-1 rounded-full">Part-time</span>
+                                <span class="bg-gray-100 text-primary text-sm px-3 py-1 rounded-full">Remote</span>
+                                <span class="bg-gray-100 text-primary text-sm px-3 py-1 rounded-full">Marketing</span>
+                            </div>
+                        </div>
+                        <a href="#"
+                            class="bg-accent hover:bg-secondary text-white px-6 py-2 rounded-md font-medium transition inline-block">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-gray-600 mb-6">Don't see your perfect role? We're always looking for talented
+                    individuals.</p>
+                <a href="contact.html"
+                    class="inline-flex items-center border border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-md font-medium transition">
+                    Send Us Your CV <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hiring Process Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4 relative inline-block animated-underline">
+                    Our Hiring Process
+                    <span
+                        class="absolute bottom-0 left-0 w-full h-1 bg-accent origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Transparent and straightforward - here's what to expect</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <!-- Process Line -->
+                    <div
+                        class="hidden md:block absolute left-16 top-0 h-full w-0.5 bg-gray-200 transform -translate-x-1/2">
+                    </div>
+
+                    <!-- Step 1 -->
+                    <div class="relative flex flex-col md:flex-row items-center mb-12">
+                        <div
+                            class="flex-shrink-0 w-32 h-32 bg-white rounded-full shadow-md flex items-center justify-center mb-4 md:mb-0">
+                            <div
+                                class="w-24 h-24 bg-accent bg-opacity-10 rounded-full flex items-center justify-center text-accent">
+                                <span class="text-4xl font-bold">1</span>
+                            </div>
+                        </div>
+                        <div class="md:ml-8 flex-1">
+                            <h3 class="text-xl font-bold text-primary mb-2">Application Review</h3>
+                            <p class="text-gray-600">Our HR team reviews your application within 3-5 business days. If
+                                there's a match, we'll contact you to schedule an initial call.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative flex flex-col md:flex-row items-center mb-12">
+                        <div
+                            class="flex-shrink-0 w-32 h-32 bg-white rounded-full shadow-md flex items-center justify-center mb-4 md:mb-0">
+                            <div
+                                class="w-24 h-24 bg-accent bg-opacity-10 rounded-full flex items-center justify-center text-accent">
+                                <span class="text-4xl font-bold">2</span>
+                            </div>
+                        </div>
+                        <div class="md:ml-8 flex-1">
+                            <h3 class="text-xl font-bold text-primary mb-2">Initial Screening</h3>
+                            <p class="text-gray-600">A 30-minute video call with our HR team to discuss your experience,
+                                skills, and career goals.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative flex flex-col md:flex-row items-center mb-12">
+                        <div
+                            class="flex-shrink-0 w-32 h-32 bg-white rounded-full shadow-md flex items-center justify-center mb-4 md:mb-0">
+                            <div
+                                class="w-24 h-24 bg-accent bg-opacity-10 rounded-full flex items-center justify-center text-accent">
+                                <span class="text-4xl font-bold">3</span>
+                            </div>
+                        </div>
+                        <div class="md:ml-8 flex-1">
+                            <h3 class="text-xl font-bold text-primary mb-2">Technical Assessment</h3>
+                            <p class="text-gray-600">Depending on the role, you may complete a technical test or present
+                                your portfolio to demonstrate your skills.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative flex flex-col md:flex-row items-center">
+                        <div
+                            class="flex-shrink-0 w-32 h-32 bg-white rounded-full shadow-md flex items-center justify-center mb-4 md:mb-0">
+                            <div
+                                class="w-24 h-24 bg-accent bg-opacity-10 rounded-full flex items-center justify-center text-accent">
+                                <span class="text-4xl font-bold">4</span>
+                            </div>
+                        </div>
+                        <div class="md:ml-8 flex-1">
+                            <h3 class="text-xl font-bold text-primary mb-2">Final Interview</h3>
+                            <p class="text-gray-600">Meet with the team lead and department head to discuss the role in
+                                detail and ensure mutual fit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 my-10 bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Join Our Team?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">We're excited to hear from you. Start your journey with Tech
+                Solution BD today.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#open-positions"
+                    class="bg-white text-primary px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition">View
+                    Open Positions</a>
+                <a href="contact.html"
+                    class="border-2 border-white text-white px-8 py-3 rounded-md font-medium hover:bg-white hover:text-primary transition">Contact
+                    HR</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div
+                            class="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center font-bold">
+                            <img src="images/logo.jpg" alt="logo" class="rounded-full">
+                        </div>
+                        <span class="text-xl font-bold">Tech Solution BD</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">Your trusted partner for digital marketing and web solutions in
+                        Bangladesh.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Social Media Marketing</a>
+                        </li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Facebook & Google Ads</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Search Engine Optimization</a>
+                        </li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Web Design & Development</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition">Home</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-white transition">Services</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-white transition">About Us</a></li>
+                        <li><a href="careers.html" class="text-gray-300 hover:text-white transition">Careers</a></li>
+                        <li><a href="contact.html" class="text-gray-300 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Newsletter</h4>
+                    <p class="text-gray-300 mb-4">Subscribe to our newsletter for the latest updates and offers.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your Email"
+                            class="px-4 py-2 rounded-l-md w-full text-gray-800 focus:outline-none">
+                        <button type="submit" class="bg-accent hover:bg-secondary px-4 py-2 rounded-r-md transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-300 mb-4 md:mb-0">© 2025 Tech Solution BD. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-300 hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">Terms of Service</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = mobileMenuButton.querySelector('i');
+
+            mobileMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('open');
+
+                // Toggle between hamburger and close icon
+                if (mobileMenu.classList.contains('open')) {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
+                } else {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                }
+            });
+
+            // Close mobile menu when a link is clicked
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    mobileMenu.classList.remove('open');
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                });
+            });
+
+            // Add animated-underline class to all h2 elements
+            document.querySelectorAll('h2').forEach(h2 => {
+                h2.classList.add('animated-underline');
+            });
+
+            // Smooth scrolling for all internal anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
