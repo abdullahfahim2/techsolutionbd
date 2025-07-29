@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Tech Solution BD - Digital Services & Solutions</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="images/fav.jpg" type="image/x-icon">
+
+    <!-- tailwind css cdn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- google font link -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- tailwind config script -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#061E42',
+                        secondary: '#1E40AF',
+                        accent: '#3B82F6',
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- tailwind stylesheet css -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .mobile-menu {
+                transition: all 0.3s ease-in-out;
+                max-height: 0;
+                overflow: hidden;
+            }
+            .mobile-menu.open {
+                max-height: 500px;
+            }
+            /* Dark glass morphism effect */
+            .glass-nav {
+                background: rgba(6, 30, 66, 0.8); /* Primary color with transparency */
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .glass-nav.scrolled {
+                background: rgba(6, 30, 66, 0.95); /* More opaque when scrolled */
+            }
+        }
+    </style>
+
+    <!-- custom css style -->
+    <style>
+        /* Animation for the underline */
+        @keyframes underlineAnimation {
+            0% {
+                transform: scaleX(0);
+            }
+
+            50% {
+                transform: scaleX(1);
+            }
+
+            100% {
+                transform: scaleX(0);
+            }
+        }
+
+        h2.animated-underline:hover span,
+        h2.animated-underline span {
+            animation: underlineAnimation 3s infinite;
+        }
+
+        /* 404 page specific styling */
+        .error-container {
+            background: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') no-repeat center center;
+            background-size: cover;
+            position: relative;
+        }
+
+        .error-container:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(6, 30, 66, 0.85);
+        }
+
+        .error-code {
+            font-size: 10rem;
+            line-height: 1;
+            text-shadow: 4px 4px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
+            }
+        }
+
+        .glass-nav {
+            background: rgba(6, 30, 66, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .btn-404 {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-404:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .btn-404:hover:after {
+            left: 100%;
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+    </style>
+</head>
+
+<body class="font-poppins">
+    <!-- Sticky Navbar with Dark Glass Effect -->
+    <nav id="main-nav" class="sticky top-0 z-50 glass-nav transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center font-bold">
+                    <img src="images/logo.jpg" alt="logo" class="rounded-full">
+                </div>
+                <span class="text-xl font-bold text-white">Tech Solution BD</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-white hover:text-accent font-medium transition">Home</a>
+                <a href="services.html" class="text-white hover:text-accent font-medium transition">Services</a>
+                <a href="portfolio.html" class="text-white hover:text-accent font-medium transition">Portfolio</a>
+                <a href="blog.html" class="text-white hover:text-accent font-medium transition">Blog</a>
+                <a href="about.html" class="text-white hover:text-accent font-medium transition">About</a>
+                <a href="contact.html" class="text-white hover:text-accent font-medium transition">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-primary bg-opacity-90 w-full px-4">
+            <div class="flex flex-col space-y-4 py-4">
+                <a href="index.html" class="text-white hover:text-accent font-medium transition">Home</a>
+                <a href="services.html" class="text-white hover:text-accent font-medium transition">Services</a>
+                <a href="portfolio.html" class="text-white hover:text-accent font-medium transition">Portfolio</a>
+                <a href="blog.html" class="text-white hover:text-accent font-medium transition">Blog</a>
+                <a href="about.html" class="text-white hover:text-accent font-medium transition">About</a>
+                <a href="contact.html" class="text-white hover:text-accent font-medium transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 404 Error Content -->
+    <section class="error-container min-h-screen flex items-center justify-center text-white my-10 py-20">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="floating inline-block mb-8">
+                    <img src="https://cdn-icons-png.flaticon.com/512/755/755014.png" alt="404 Error"
+                        class="w-40 h-40 mx-auto">
+                </div>
+
+                <h1 class="error-code font-bold text-accent mb-4">404</h1>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Oops! Page Not Found</h2>
+                <p class="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+                    The page you're looking for doesn't exist or has been moved.
+                    Please check the URL or navigate back to our homepage.
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="index.html"
+                        class="btn-404 bg-accent hover:bg-white text-white hover:text-primary px-8 py-3 rounded-md font-medium">
+                        <i class="fas fa-home mr-2"></i> Return Home
+                    </a>
+                    <a href="contact.html"
+                        class="btn-404 border-2 border-white hover:bg-white hover:text-primary text-white px-8 py-3 rounded-md font-medium">
+                        <i class="fas fa-envelope mr-2"></i> Contact Support
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div
+                            class="w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center font-bold">
+                            <img src="images/logo.jpg" alt="logo" class="rounded-full">
+                        </div>
+                        <span class="text-xl font-bold">Tech Solution BD</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">Your trusted partner for digital marketing and web solutions in
+                        Bangladesh.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-white transition"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="services.html" class="text-gray-300 hover:text-white transition">Social Media
+                                Marketing</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-white transition">Facebook & Google
+                                Ads</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-white transition">Search Engine
+                                Optimization</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-white transition">Web Design &
+                                Development</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition">Home</a></li>
+                        <li><a href="portfolio.html" class="text-gray-300 hover:text-white transition">Portfolio</a>
+                        </li>
+                        <li><a href="blog.html" class="text-gray-300 hover:text-white transition">Blog</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-white transition">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Newsletter</h4>
+                    <p class="text-gray-300 mb-4">Subscribe to our newsletter for the latest updates and offers.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your Email"
+                            class="px-4 py-2 rounded-l-md w-full text-gray-800 focus:outline-none">
+                        <button type="submit" class="bg-accent hover:bg-secondary px-4 py-2 rounded-r-md transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-300 mb-4 md:mb-0">© 2025 Tech Solution BD. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-300 hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-300 hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = mobileMenuButton.querySelector('i');
+
+            mobileMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('open');
+
+                // Toggle between hamburger and close icon
+                if (mobileMenu.classList.contains('open')) {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
+                } else {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                }
+            });
+
+            // Close mobile menu when a link is clicked
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    mobileMenu.classList.remove('open');
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                });
+            });
+
+            // Add animated-underline class to all h2 elements
+            document.querySelectorAll('h2').forEach(h2 => {
+                h2.classList.add('animated-underline');
+            });
+        });
+    </script>
+</body>
+
+</html>
